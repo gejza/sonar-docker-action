@@ -1,0 +1,21 @@
+name: Self-Test Action
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run the action (self-test)
+        uses: ./
+        with:
+          project_key: test_project
+          sources: .
+          host_url: http://sonar.gejza.site
+          token: ${{ secrets.SONAR_TOKEN }}

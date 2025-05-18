@@ -1,0 +1,27 @@
+name: SonarQube Docker Action
+description: Run SonarQube analysis via official sonar-scanner-cli docker image
+
+inputs:
+  project_key:
+    required: true
+    description: Project key in SonarQube
+
+  sources:
+    required: true
+    description: Path to source code (e.g., '.')
+
+  host_url:
+    required: true
+    description: SonarQube server URL
+
+  token:
+    required: true
+    description: Authentication token for SonarQube
+
+  extra:
+    required: false
+    description: Extra command-line flags (optional)
+
+runs:
+  using: docker
+  image: Dockerfile
